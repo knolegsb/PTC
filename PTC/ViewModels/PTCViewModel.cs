@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
+//using System.Web.Http.ModelBinding;
 using System.Web.Mvc;
 
 namespace PTC
@@ -73,7 +74,7 @@ namespace PTC
         #endregion
 
         #region LoadCategories Method
-        private void LoadCategories()
+        public void LoadCategories()
         {
             PTCEntities db = new PTCEntities();
             Categories.AddRange(db.Categories);
@@ -81,7 +82,7 @@ namespace PTC
         #endregion
 
         #region LoadSearchCategories Method
-        private void LoadSearchCategories()
+        public void LoadSearchCategories()
         {
             PTCEntities db = new PTCEntities();
 
