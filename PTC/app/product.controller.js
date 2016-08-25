@@ -7,10 +7,25 @@
         var vm = this;
         var dataService = $http;
 
-        vm.product = {
-            ProductId : 1,
-            ProductName : 'Video Training'
-        };
+        //vm.product = {
+        //    ProductId : 1,
+        //    ProductName : 'Video Training'
+        //};
+
+        // Hook up public events
+        vm.resetSearch = resetSearch;
+
+        function resetSearch() {
+            vm.searchInput = {
+                selectedCategory: {
+                    CategoryId: 0,
+                    CategoryName: ''
+                },
+                productName: ''
+            };
+
+            productList();
+        }
 
         vm.searchCategories = [];
         searchCategoriesList();
