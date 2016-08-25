@@ -60,7 +60,7 @@ namespace PTC
         #region HandleRequest Method
         public void HandleRequest()
         {
-            LoadSearchCategories();
+            //LoadSearchCategories();
             LoadCategories();
 
             switch (EventCommand.ToLower())

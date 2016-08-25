@@ -12,8 +12,28 @@
             ProductName : 'Video Training'
         };
 
-        vm.products = [];
+        vm.searchCategories = [];
+        searchCategoriesList();
 
+        vm.searchInput = {
+            selectedCategory: {
+                CategoryId: 0,
+                CategoryName: ''
+            },
+            productName: ''
+        };
+
+        function searchCategoriesList() {
+            dataService.get("/api/Category/GetSearchCategories")
+                .then(function (result) {
+                    vm.searchCategories = result.data;
+                    debugger;
+                }, function (error) {
+                    handleException(error);
+                });
+        }
+
+        vm.products = [];
         productList();
 
         function productList() {
@@ -29,5 +49,7 @@
         function handleExceptioin(error) {
             alert(error.data.ExceptionMessage);
         }
+
+
     }
 })();
